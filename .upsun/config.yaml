@@ -1,9 +1,11 @@
 applications:
   app:
-    type: php:8.4
+    type: php:8.5
     dependencies:
       nodejs:
         '@anthropic-ai/claude-code': '*'
+    relationships:
+      database: 'postgresql:postgresql'
     hooks:
       build: |
         set -ex
@@ -26,7 +28,10 @@ applications:
             echo '{"permissions": {"defaultMode": "bypassPermissions"}}' > .claude/settings.json
             
             # Run claude-code with the prompt
-            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")            
+            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")
+services:
+  postgresql:
+    type: postgresql:16
 routes:
   'https://{default}':
     type: upstream
