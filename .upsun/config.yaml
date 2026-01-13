@@ -3,7 +3,7 @@ applications:
     type: php:8.5
     dependencies:
       nodejs:
-        anthropic-ai/claude-code: '*'
+        '@anthropic-ai/claude-code': '*'
     hooks:
       build: |
         set -ex
