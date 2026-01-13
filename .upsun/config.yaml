@@ -20,6 +20,11 @@ applications:
         source-code-operator:
           command: |
             set -ex
+            
+            # bypass claude-code permissions prompt
+            mkdir -p .claude
+            echo '{"permissions": {"defaultMode": "bypassPermissions"}}' > .claude/settings.json
+            
             # Run claude-code with the prompt
             RESULT=$(claude "$INPUT")
             # Commit the result to the current git branch
