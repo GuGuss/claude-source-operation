@@ -1,6 +1,6 @@
 applications:
   app:
-    type: php:8.5
+    type: php:8.4
     dependencies:
       nodejs:
         '@anthropic-ai/claude-code': '*'
