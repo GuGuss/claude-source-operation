@@ -18,7 +18,7 @@ applications:
     source:
       operations:
         source-code-operator:
-          command:
+          command: |
             set -ex
             # Run claude-code with the prompt
             RESULT=$(claude-code "$1")
