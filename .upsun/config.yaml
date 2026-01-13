@@ -1,6 +1,6 @@
 applications:
   app:
-    type: php:8.4
+    type: php:8.5
     dependencies:
       nodejs:
         '@anthropic-ai/claude-code': '*'
@@ -26,7 +26,12 @@ applications:
             echo '{"permissions": {"defaultMode": "bypassPermissions"}}' > .claude/settings.json
             
             # Run claude-code with the prompt
-            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")            
+            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")
+    relationships:
+      redis: redis:redis
+services:
+  redis:
+    type: redis:7.2
 routes:
   'https://{default}':
     type: upstream
