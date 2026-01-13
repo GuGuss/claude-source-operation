@@ -9,7 +9,7 @@ applications:
         set -ex
         # Install claude-code package dependencies if needed
         # (Assuming claude-code is a CLI tool installed via Nix package)
-        claude-code --version
+        claude --version
     web:
       locations:
         '/':
