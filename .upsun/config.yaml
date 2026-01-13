@@ -26,11 +26,7 @@ applications:
             echo '{"permissions": {"defaultMode": "bypassPermissions"}}' > .claude/settings.json
             
             # Run claude-code with the prompt
-            RESULT=$(claude "$INPUT")
-            # Commit the result to the current git branch
-            git add .
-            git commit -m "Update from claude-code: $RESULT"
-
+            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")            
 routes:
   'https://{default}':
     type: upstream
