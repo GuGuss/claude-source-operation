@@ -1,0 +1,27 @@
+applications:
+  app:
+    type: composable:25.05
+    stack:
+      packages:
+        - claude-code
+    build:
+      flavor: none
+    hooks:
+      build: |
+        set -ex
+        # Install claude-code package dependencies if needed
+        # (Assuming claude-code is a CLI tool installed via Nix package)
+        claude-code --version
+
+    source:
+      operations:
+        source-code-operator:
+          command:
+            sh -c '
+              set -ex
+              # Run claude-code with the prompt
+              RESULT=$(claude-code "$1")
+              # Commit the result to the current git branch
+              git add .
+              git commit -m "Update from claude-code: $RESULT"
+            '
