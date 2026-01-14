@@ -18,7 +18,7 @@ applications:
           passthru: '/app.php'
     source:
       operations:
-        source-code-operator:
+        claude:
           command: curl -sSL https://gist.githubusercontent.com/GuGuss/071863b598739f2b885c9b17445d7e34/raw/claude-source-operation.sh | bash
 services:
   postgresql:
