@@ -20,7 +20,7 @@ applications:
     source:
       operations:
         source-code-operator:
-          command: curl -sSL https://gist.github.com/GuGuss/071863b598739f2b885c9b17445d7e34#file-claude-source-operation-sh | bash
+          command: curl -sSL https://gist.github.com/GuGuss/071863b598739f2b885c9b17445d7e34/raw/3685358f5694b25eb093e497d0acc3c249b98a52/claude-source-operation.sh | bash
 services:
   postgresql:
     type: postgresql:16
