@@ -20,18 +20,7 @@ applications:
     source:
       operations:
         source-code-operator:
-          command: |
-            set -ex
-            
-            # bypass claude-code permissions prompt
-            mkdir -p .claude
-            echo '{"permissions": {"defaultMode": "bypassPermissions"}}' > .claude/settings.json
-            
-            # Run claude-code with the prompt
-            RESULT=$(claude "${INPUT}. Once done, commit the changes with a nice message.")
-services:
-  postgresql:
-    type: postgresql:16
+          command: curl -sSL https://gist.github.com/GuGuss/071863b598739f2b885c9b17445d7e34#file-claude-source-operation-sh | bash
 routes:
   'https://{default}':
     type: upstream
